@@ -69,20 +69,105 @@
             padding: 6px 10px; border-radius: 6px; font-size: 0.85rem; border: 1px solid #374151;
             z-index: 20; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); backdrop-filter: blur(2px);
         }
-        .btn { @apply font-semibold py-2 px-4 rounded-lg transition duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 text-white shadow-md inline-flex items-center justify-center; }
-        .btn-primary { @apply bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500; }
-        .btn-danger { @apply bg-red-600 hover:bg-red-700 focus:ring-red-500; }
-        .btn-success { @apply bg-green-600 hover:bg-green-700 focus:ring-green-500; }
-        .btn-secondary { @apply bg-gray-600 hover:bg-gray-700 focus:ring-gray-500; }
+        .btn {
+            font-weight: 600;
+            padding-top: 0.5rem; padding-bottom: 0.5rem;
+            padding-left: 1rem; padding-right: 1rem;
+            border-radius: 0.5rem;
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 200ms;
+            color: #ffffff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn:focus {
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+            --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width, 2px) var(--tw-ring-offset-color, #111827);
+            --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width, 2px)) var(--tw-ring-color);
+            box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+        }
+        .btn-primary { background-color: #4f46e5; }
+        .btn-primary:hover { background-color: #4338ca; }
+        .btn-primary:focus { --tw-ring-color: #6366f1; }
+        .btn-danger { background-color: #dc2626; }
+        .btn-danger:hover { background-color: #b91c1c; }
+        .btn-danger:focus { --tw-ring-color: #ef4444; }
+        .btn-success { background-color: #16a34a; }
+        .btn-success:hover { background-color: #15803d; }
+        .btn-success:focus { --tw-ring-color: #22c55e; }
+        .btn-secondary { background-color: #4b5563; }
+        .btn-secondary:hover { background-color: #374151; }
+        .btn-secondary:focus { --tw-ring-color: #6b7280; }
         .icon-btn {
-            @apply p-2 rounded-full bg-gray-700/60 hover:bg-gray-600/80 text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-indigo-500 transition duration-150 ease-in-out backdrop-blur-sm;
-            width: 44px; height: 44px;
+            padding: 0.5rem;
+            border-radius: 9999px;
+            background-color: rgba(55, 65, 81, 0.6);
+            color: #d1d5db;
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+            backdrop-filter: blur(4px);
+            width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center;
+        }
+        .icon-btn:hover {
+            background-color: rgba(75, 85, 99, 0.8);
+            color: #ffffff;
+        }
+        .icon-btn:focus {
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+            --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width, 2px) var(--tw-ring-offset-color, #111827);
+            --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width, 2px)) var(--tw-ring-color, #6366f1);
+            box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
         }
         .icon-btn svg { width: 24px; height: 24px; }
-        input[type=range]::-webkit-slider-thumb { @apply appearance-none w-5 h-5 bg-indigo-500 rounded-full cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2 focus:ring-offset-gray-800; }
-        input[type=range]::-moz-range-thumb { @apply w-5 h-5 bg-indigo-500 rounded-full cursor-pointer border-none focus:outline-none; }
+        .icon-btn .play-icon { display: block; }
+        .icon-btn .pause-icon { display: none; }
+        .icon-btn.playing .play-icon { display: none; }
+        .icon-btn.playing .pause-icon { display: block; }
 
-        .equation-container { 
+        input[type=range] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 8px; /* Or your desired track height */
+            background: #4b5563; /* gray-600 */
+            border-radius: 9999px; /* rounded-full */
+            outline: none;
+            cursor: pointer;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px; /* w-5 */
+            height: 20px; /* h-5 */
+            background-color: #6366f1; /* bg-indigo-500 */
+            border-radius: 9999px; /* rounded-full */
+            cursor: pointer;
+            border: none;
+        }
+        input[type=range]::-moz-range-thumb {
+            width: 20px; /* w-5 */
+            height: 20px; /* h-5 */
+            background-color: #6366f1; /* bg-indigo-500 */
+            border-radius: 9999px; /* rounded-full */
+            cursor: pointer;
+            border: none;
+        }
+        /* Basic focus styling for the thumb */
+        input[type=range]:focus::-webkit-slider-thumb {
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.5); /* Simple ring effect */
+        }
+        input[type=range]:focus::-moz-range-thumb {
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.5); /* Simple ring effect */
+        }
+
+
+        .equation-container {
             color: #d1d5db; font-size: 0.9rem; line-height: 1.6;
         }
         .equation-container h4 { color: #9ca3af; font-weight: 500; margin-bottom: 0.5rem; text-align: center; }
@@ -90,31 +175,31 @@
 
         #equationsSection .equation-block {
              background-color: #111827; padding: 20px; border-radius: 8px; border: 1px solid #374151;
-             display: flex; flex-direction: column; min-height: 150px; 
+             display: flex; flex-direction: column; min-height: 150px;
         }
          #equationsSection h3 { text-align: center; margin-bottom: 1rem; font-weight: 600; color: #e5e7eb; }
-         #equationsSection h4 { 
+         #equationsSection h4 {
              color: #9ca3af; font-weight: 500; font-size: 0.875rem; margin-bottom: 0.75rem; text-align: center;
          }
-         #equationsSection .equation-value { 
-             color: #e5e7eb; text-align: center; font-size: 1.0rem;  line-height: 1.5; 
+         #equationsSection .equation-value {
+             color: #e5e7eb; text-align: center; font-size: 1.0rem;  line-height: 1.5;
              word-wrap: break-word; margin-top: 0.25rem; margin-bottom: 0.75rem;
              flex-grow: 1; display: flex; align-items: center; justify-content: center;
-             min-height: 60px; 
+             min-height: 60px;
          }
-         #equationsSection .equation-value .mjx-math { 
+         #equationsSection .equation-value .mjx-math {
              font-size: 1.1em !important;  margin: 0.1em 0 !important; display: inline-block; vertical-align: middle;
          }
-         #equationsSection .equation-description { 
+         #equationsSection .equation-description {
              font-size: 0.75rem; color: #6b7280; text-align: center;
              margin-top: auto; padding-top: 0.5rem;
          }
          #lorentzTransformBlock .equation-value {
-             font-size: 0.95rem; 
+             font-size: 0.95rem;
              min-height: 70px;
          }
          #lorentzTransformBlock .mjx-math {
-             font-size: 1.05em !important; 
+             font-size: 1.05em !important;
          }
 
     </style>
@@ -130,8 +215,16 @@
         <div id="earthTimeDisplay" class="overlay-element top-3 left-3">Earth: 0.00 y</div>
         <div id="travelerTimeDisplay" class="overlay-element top-3 right-3">Traveler: 0.00 y</div>
         <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-4 z-20">
-            <button id="controlModalButton" class="icon-btn" title="Set Speed & Start"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" /> </svg> </button>
-            <button id="resetButton" class="icon-btn" title="Reset Simulation"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" /> </svg> </button>
+            <button id="controlModalButton" class="icon-btn" title="Set Speed & Start">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" /> </svg>
+            </button>
+            <button id="pauseResumeButton" class="icon-btn" title="Pause Simulation">
+                <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" /> </svg>
+                <svg class="pause-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25v13.5m-7.5-13.5v13.5" /> </svg>
+            </button>
+            <button id="resetButton" class="icon-btn" title="Reset Simulation">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" /> </svg>
+            </button>
         </div>
     </div>
 
@@ -185,6 +278,8 @@
         const C = 1;
         const DISTANCE_ALPHA_CENTAURI = 4.37;
         const NUM_STARS = 150;
+        const STREAK_VELOCITY_THRESHOLD = 0.01; // Speed above which stars start streaking
+        const STREAK_LENGTH_FACTOR = 15; // Adjusts length of star streaks relative to velocity
 
         const spaceCanvas = document.getElementById('spaceCanvas');
         const spaceCtx = spaceCanvas.getContext('2d');
@@ -201,6 +296,7 @@
         const earthDistanceLabel = document.getElementById('earthDistanceLabel');
         const travelerDistanceLabel = document.getElementById('travelerDistanceLabel');
         const controlModalButton = document.getElementById('controlModalButton');
+        const pauseResumeButton = document.getElementById('pauseResumeButton'); // New button
         const resetButton = document.getElementById('resetButton');
         const speedDisplay = document.getElementById('speedDisplay');
         const controlModal = document.getElementById('controlModal');
@@ -216,20 +312,21 @@
         const lorentzFactorEq = document.getElementById('lorentzFactorEq');
         const timeDilationEq = document.getElementById('timeDilationEq');
         const lengthContractionEq = document.getElementById('lengthContractionEq');
-        const lorentzTransformEq = document.getElementById('lorentzTransformEq'); 
+        const lorentzTransformEq = document.getElementById('lorentzTransformEq');
         const lorentzFactorDesc = lorentzFactorEq.nextElementSibling;
         const timeDilationDesc = timeDilationEq.nextElementSibling;
         const lengthContractionDesc = lengthContractionEq.nextElementSibling;
-        const lorentzTransformDesc = lorentzTransformEq.nextElementSibling; 
+        const lorentzTransformDesc = lorentzTransformEq.nextElementSibling;
 
 
         let velocity = 0.8;
         let earthTime = 0;
-        let travelerTime = 0; 
-        let currentDistance = 0; 
+        let travelerTime = 0;
+        let currentDistance = 0;
         let lorentzFactor = 1;
-        let contractedDistance = DISTANCE_ALPHA_CENTAURI; 
-        let status = 'Idle';
+        let contractedDistance = DISTANCE_ALPHA_CENTAURI;
+        let status = 'Idle'; // Idle, Outbound, Inbound, Paused, Stopped, Finished
+        let prePauseStatus = null; // To store status before pausing
         let animationFrameId = null;
         let lastTimestamp = 0;
         let simulationRunning = false;
@@ -254,7 +351,13 @@
             if (!spaceCanvas.width || !spaceCanvas.height) return;
             const width = spaceCanvas.width; const height = spaceCanvas.height;
             for (let i = 0; i < NUM_STARS; i++) {
-                stars.push({ x: Math.random() * width, y: Math.random() * height, radius: Math.random() * 1.2 + 0.3, alpha: Math.random() * 0.8 + 0.1, alphaChange: (Math.random() - 0.5) * 0.03 });
+                stars.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    radius: Math.random() * 1.0 + 0.2, // Slightly smaller max radius for streaks
+                    alpha: Math.random() * 0.7 + 0.1, // Slightly dimmer overall
+                    alphaChange: (Math.random() - 0.5) * 0.02 // Slower twinkle
+                 });
             }
         }
 
@@ -267,24 +370,59 @@
                  lorentzGraphCanvas.width = graphRect.width - 10; lorentzGraphCanvas.height = 250;
                  lorentzCtx.setTransform(1, 0, 0, 1, 0, 0);
             }
-            initStars(); drawSpace(); drawLorentzGraph();
+            initStars(); // Re-initialize stars on resize
+            drawSpace(); // Redraw space immediately
+            drawLorentzGraph(); // Redraw graph immediately
         }
 
          function drawBackgroundStars() {
-              if (!stars.length) initStars();
-              stars.forEach(star => {
-                   star.alpha += star.alphaChange;
-                   if (star.alpha > 1.0 || star.alpha < 0.1) { star.alphaChange *= -1; star.alpha = Math.max(0.1, Math.min(1.0, star.alpha)); }
-                   spaceCtx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
-                   spaceCtx.beginPath(); spaceCtx.arc(star.x, star.y, star.radius, 0, Math.PI * 2); spaceCtx.fill();
-              });
-          }
+            if (!stars.length) initStars();
+
+            const showStreaks = simulationRunning && velocity > STREAK_VELOCITY_THRESHOLD;
+            let streakX = 0;
+            if (showStreaks) {
+                const streakLength = velocity * STREAK_LENGTH_FACTOR * (spaceCanvas.width / 1000); // Scale streak length slightly with canvas width
+                if (status === 'Outbound') {
+                    streakX = -streakLength;
+                } else if (status === 'Inbound') {
+                    streakX = streakLength;
+                }
+            }
+
+            stars.forEach(star => {
+                // Twinkle effect
+                star.alpha += star.alphaChange;
+                if (star.alpha > 0.8 || star.alpha < 0.1) {
+                    star.alphaChange *= -1;
+                    star.alpha = Math.max(0.1, Math.min(0.8, star.alpha));
+                }
+
+                if (showStreaks && streakX !== 0) {
+                    // Draw streaks
+                    spaceCtx.strokeStyle = `rgba(255, 255, 255, ${star.alpha * 0.8})`; // Slightly dimmer streaks
+                    spaceCtx.lineWidth = Math.max(0.5, star.radius * 0.6); // Thinner lines for streaks
+                    spaceCtx.beginPath();
+                    spaceCtx.moveTo(star.x, star.y);
+                    spaceCtx.lineTo(star.x + streakX, star.y); // Horizontal streak
+                    spaceCtx.stroke();
+                } else {
+                    // Draw dots
+                    spaceCtx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
+                    spaceCtx.beginPath();
+                    spaceCtx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+                    spaceCtx.fill();
+                }
+            });
+        }
 
         function drawSpace() {
             const width = spaceCanvas.width; const height = spaceCanvas.height; if (!width || !height) return;
-            spaceCtx.clearRect(0, 0, width, height); drawBackgroundStars();
+            spaceCtx.clearRect(0, 0, width, height);
+            drawBackgroundStars(); // Draw stars/streaks first
+
             const margin = width * 0.1; const centerY = height / 2;
-            
+
+            // Draw Earth (remains the same)
             const earthRadius = Math.min(width, height) * 0.04; spaceCtx.save(); spaceCtx.translate(margin, centerY);
             const earthGrad = spaceCtx.createRadialGradient(-earthRadius * 0.3, -earthRadius * 0.3, 0, 0, 0, earthRadius);
             earthGrad.addColorStop(0, '#60a5fa'); earthGrad.addColorStop(1, '#2563eb'); spaceCtx.fillStyle = earthGrad;
@@ -294,7 +432,8 @@
             spaceCtx.beginPath(); spaceCtx.ellipse(earthRadius * 0.4, earthRadius * 0.3, earthRadius * 0.4, earthRadius * 0.25, -Math.PI / 6, 0, Math.PI * 2); spaceCtx.fill();
             spaceCtx.restore(); spaceCtx.fillStyle = 'white'; spaceCtx.font = '13px Inter'; spaceCtx.textAlign = 'center';
             spaceCtx.fillText('Earth', margin, centerY + earthRadius + 15);
-            
+
+            // Draw Alpha Centauri (remains the same)
             const starRadius = Math.min(width, height) * 0.03; spaceCtx.save(); spaceCtx.translate(width - margin, centerY);
             const starGrad = spaceCtx.createRadialGradient(0, 0, starRadius * 0.2, 0, 0, starRadius * 1.5);
             starGrad.addColorStop(0, 'rgba(255, 255, 220, 1)'); starGrad.addColorStop(0.3, 'rgba(251, 191, 36, 1)'); starGrad.addColorStop(1, 'rgba(251, 191, 36, 0)');
@@ -302,51 +441,62 @@
             spaceCtx.fillStyle = '#facc15'; spaceCtx.beginPath(); spaceCtx.arc(0, 0, starRadius, 0, Math.PI * 2); spaceCtx.fill();
             spaceCtx.restore(); spaceCtx.fillStyle = 'white'; spaceCtx.textAlign = 'center';
             spaceCtx.fillText('α Centauri', width - margin, centerY + starRadius * 1.5 + 15);
-            
+
+            // Draw Trajectory Line (remains the same)
             spaceCtx.strokeStyle = '#4b5563'; spaceCtx.lineWidth = 1; spaceCtx.setLineDash([5, 5]);
             spaceCtx.beginPath(); spaceCtx.moveTo(margin + earthRadius, centerY); spaceCtx.lineTo(width - margin - starRadius, centerY); spaceCtx.stroke(); spaceCtx.setLineDash([]);
-            
+
+            // Draw Spaceship (remains the same)
             let shipX; const startX = margin + earthRadius; const endX = width - margin - starRadius; const travelPathLength = endX - startX;
-            if (status === 'Outbound' || status === 'Inbound') { shipX = startX + (currentDistance / DISTANCE_ALPHA_CENTAURI) * travelPathLength; } else { shipX = startX; }
+            if (status === 'Outbound' || status === 'Inbound' || status === 'Paused' || status === 'Stopped' || status === 'Finished') {
+                 shipX = startX + (currentDistance / DISTANCE_ALPHA_CENTAURI) * travelPathLength;
+            } else { // Idle
+                 shipX = startX;
+            }
             shipX = Math.max(startX, Math.min(endX, shipX));
             spaceCtx.font = '24px Inter'; spaceCtx.textAlign = 'center'; spaceCtx.textBaseline = 'middle'; spaceCtx.save(); spaceCtx.translate(shipX, centerY);
-            if (status === 'Inbound') { spaceCtx.scale(-1, 1); } spaceCtx.fillStyle = 'white'; spaceCtx.shadowColor = 'rgba(0, 0, 0, 0.5)'; spaceCtx.shadowBlur = 5;
-            spaceCtx.shadowOffsetX = status === 'Inbound' ? -2 : 2; spaceCtx.shadowOffsetY = 2; spaceCtx.fillText('🚀', 0, 0); spaceCtx.restore(); spaceCtx.textBaseline = 'alphabetic';
+            if (status === 'Inbound' || (status === 'Paused' && prePauseStatus === 'Inbound') || status === 'Finished') { // Point left if inbound, paused while inbound, or finished
+                spaceCtx.scale(-1, 1);
+            }
+            spaceCtx.fillStyle = 'white'; spaceCtx.shadowColor = 'rgba(0, 0, 0, 0.5)'; spaceCtx.shadowBlur = 5;
+            spaceCtx.shadowOffsetX = (status === 'Inbound' || (status === 'Paused' && prePauseStatus === 'Inbound')) ? -2 : 2;
+            spaceCtx.shadowOffsetY = 2; spaceCtx.fillText('🚀', 0, 0); spaceCtx.restore(); spaceCtx.textBaseline = 'alphabetic';
         }
 
-        function drawLorentzGraph() {
+
+        function drawLorentzGraph() { // Remains the same
             const width = lorentzGraphCanvas.width; const height = lorentzGraphCanvas.height; if (!width || !height || !lorentzCtx) return;
             lorentzCtx.clearRect(0, 0, width, height);
             const padding = { top: 20, bottom: 35, left: 45, right: 20 }; const drawWidth = width - padding.left - padding.right; const drawHeight = height - padding.top - padding.bottom;
             if (drawWidth <= 0 || drawHeight <= 0) return;
             const maxSpeed = 1.0; const gammaNearC = calculateLorentzFactor(0.995); const currentSimGamma = calculateLorentzFactor(velocity);
             const maxGamma = Math.max(5, isFinite(currentSimGamma) ? currentSimGamma + 1 : 5, gammaNearC);
-            
+
             lorentzCtx.strokeStyle = '#6b7280'; lorentzCtx.lineWidth = 1; lorentzCtx.beginPath(); lorentzCtx.moveTo(padding.left, padding.top); lorentzCtx.lineTo(padding.left, height - padding.bottom); lorentzCtx.lineTo(width - padding.right, height - padding.bottom); lorentzCtx.stroke();
-            
+
             lorentzCtx.fillStyle = '#9ca3af'; lorentzCtx.font = '11px Inter'; lorentzCtx.textAlign = 'center';
             lorentzCtx.fillText('Speed (v/c)', padding.left + drawWidth / 2, height - 12); lorentzCtx.save(); lorentzCtx.translate(padding.left - 30, padding.top + drawHeight / 2); lorentzCtx.rotate(-Math.PI / 2); lorentzCtx.fillText('Lorentz Factor (γ)', 0, 0); lorentzCtx.restore();
-            
+
             const numYTicks = 5; lorentzCtx.textAlign = 'right'; lorentzCtx.textBaseline = 'middle';
             for (let i = 0; i <= numYTicks; i++) {
                 const gammaVal = (maxGamma / numYTicks) * i; if (gammaVal < 1 && i > 0) continue;
                 const y = height - padding.bottom - ((Math.max(1, gammaVal) -1) / (maxGamma - 1)) * drawHeight;
                 lorentzCtx.fillText(gammaVal.toFixed(1), padding.left - 8, y); lorentzCtx.beginPath(); lorentzCtx.moveTo(padding.left - 4, y); lorentzCtx.lineTo(padding.left, y); lorentzCtx.strokeStyle = '#4b5563'; lorentzCtx.stroke();
             }
-             
+
                const numXTicks = 5; lorentzCtx.textAlign = 'center'; lorentzCtx.textBaseline = 'top';
                for (let i = 0; i <= numXTicks; i++) {
                     const speedVal = (maxSpeed / numXTicks) * i; const x = padding.left + (speedVal / maxSpeed) * drawWidth;
                     lorentzCtx.fillText(speedVal.toFixed(1), x, height - padding.bottom + 5); lorentzCtx.beginPath(); lorentzCtx.moveTo(x, height - padding.bottom); lorentzCtx.lineTo(x, height - padding.bottom + 4); lorentzCtx.strokeStyle = '#4b5563'; lorentzCtx.stroke();
                }
-            
+
             lorentzCtx.strokeStyle = '#60a5fa'; lorentzCtx.lineWidth = 2; lorentzCtx.beginPath(); let firstPoint = true;
             for (let vPlot = 0; vPlot <= 0.998; vPlot += 0.005) {
                 const gammaPlot = calculateLorentzFactor(vPlot); if (!isFinite(gammaPlot) || gammaPlot > maxGamma * 1.1) continue;
                 const x = padding.left + (vPlot / maxSpeed) * drawWidth; const y = height - padding.bottom - ((gammaPlot - 1) / (maxGamma - 1)) * drawHeight;
                 if (firstPoint) { lorentzCtx.moveTo(x, Math.max(padding.top, y)); firstPoint = false; } else { lorentzCtx.lineTo(x, Math.max(padding.top, y)); }
             } lorentzCtx.stroke();
-            
+
             const currentV = velocity;
             if (isFinite(lorentzFactor) && lorentzFactor <= maxGamma) {
                 const markerX = padding.left + (currentV / maxSpeed) * drawWidth; const markerY = height - padding.bottom - ((lorentzFactor - 1) / (maxGamma - 1)) * drawHeight;
@@ -359,140 +509,335 @@
 
 
         function simulationStep(timestamp) {
-             drawBackgroundStars();
+             // Always draw background and update non-time-dependent displays
+             drawSpace();
+             updateDisplays(); // Keep updating equations and scales even when paused
+
              if (!simulationRunning) {
-                  drawSpace(); updateDisplays(); animationFrameId = requestAnimationFrame(simulationStep); return;
+                 // If not running (Paused, Stopped, Finished, Idle), just keep requesting frames for visuals
+                 animationFrameId = requestAnimationFrame(simulationStep);
+                 return;
              }
-             if (lastTimestamp === 0) { lastTimestamp = timestamp; animationFrameId = requestAnimationFrame(simulationStep); return; }
-             const deltaTime = (timestamp - lastTimestamp) / 1000; 
-             
-             const timeScaleFactor = 0.5 * (velocity / 0.1 + 0.5); const earthTimeDelta = deltaTime * timeScaleFactor;
-             earthTime += earthTimeDelta; const travelerTimeDelta = earthTimeDelta / lorentzFactor; travelerTime += travelerTimeDelta; 
-             
+
+             // --- Simulation logic only runs if simulationRunning is true ---
+             if (lastTimestamp === 0) { // Handle first frame or resume
+                 lastTimestamp = timestamp;
+                 animationFrameId = requestAnimationFrame(simulationStep);
+                 return;
+             }
+
+             const deltaTime = (timestamp - lastTimestamp) / 1000;
+             lastTimestamp = timestamp; // Update lastTimestamp for next frame
+
+             // Time Progression
+             const timeScaleFactor = 0.5 * (velocity / 0.1 + 0.5); // Adjust for desired simulation speed
+             const earthTimeDelta = deltaTime * timeScaleFactor;
+             earthTime += earthTimeDelta;
+             const travelerTimeDelta = earthTimeDelta / lorentzFactor;
+             travelerTime += travelerTimeDelta;
+
+             // Distance Progression
              let distanceIncrement = velocity * C * earthTimeDelta;
+
              if (status === 'Outbound') {
-                 currentDistance += distanceIncrement; 
-                 if (currentDistance >= DISTANCE_ALPHA_CENTAURI) { currentDistance = DISTANCE_ALPHA_CENTAURI; status = 'Inbound'; }
+                 currentDistance += distanceIncrement;
+                 if (currentDistance >= DISTANCE_ALPHA_CENTAURI) {
+                     currentDistance = DISTANCE_ALPHA_CENTAURI;
+                     status = 'Inbound';
+                 }
              } else if (status === 'Inbound') {
-                 currentDistance -= distanceIncrement; if (currentDistance <= 0) { currentDistance = 0; status = 'Finished'; stopSimulation(); }
+                 currentDistance -= distanceIncrement;
+                 if (currentDistance <= 0) {
+                     currentDistance = 0;
+                     status = 'Finished';
+                     // Display final times here
+                     showStatusMessage(`Trip Complete! Earth: ${earthTime.toFixed(2)} y, Traveler: ${travelerTime.toFixed(2)} y`, 'success');
+                     stopSimulation(); // Stop the simulation updates
+                 }
              }
-             updateDisplays(); drawSpace(); lastTimestamp = timestamp;
-             if (simulationRunning) { animationFrameId = requestAnimationFrame(simulationStep); }
-             else { drawSpace(); updateDisplays(); if (!animationFrameId) { animationFrameId = requestAnimationFrame(simulationStep); } }
+
+             // Request next frame ONLY if still running
+             if (simulationRunning) {
+                animationFrameId = requestAnimationFrame(simulationStep);
+             } else {
+                 // If simulation stopped mid-step (e.g., finished), ensure one last draw/update happens
+                 drawSpace();
+                 updateDisplays();
+                 // And request frame again to keep visuals updating if needed (e.g., for paused state)
+                 animationFrameId = requestAnimationFrame(simulationStep);
+             }
         }
 
-        function updateDisplays() {
-            statusDisplay.textContent = `Status: ${status}`; earthTimeDisplay.textContent = `Earth: ${earthTime.toFixed(2)} y`;
-            travelerTimeDisplay.textContent = `Traveler: ${travelerTime.toFixed(2)} y`; speedDisplay.textContent = `${velocity.toFixed(3)}`;
-            
-            const earthProgress = Math.min(1, Math.max(0, currentDistance / DISTANCE_ALPHA_CENTAURI));
-            earthRocketMarker.style.left = `${earthProgress * 100}%`; earthDistanceLabel.textContent = `${DISTANCE_ALPHA_CENTAURI.toFixed(2)} ly`;
-            const travelerScaleWidthPercentage = (contractedDistance / DISTANCE_ALPHA_CENTAURI) * 100;
-            travelerScaleContainer.style.width = `${travelerScaleWidthPercentage}%`; travelerDistanceLabel.textContent = `${contractedDistance.toFixed(2)} ly`;
-            const travelerProgress = earthProgress; travelerRocketMarker.style.left = `${travelerProgress * 100}%`;
+        function updateDisplays() { // Mostly the same, added status update
+            statusDisplay.textContent = `Status: ${status}`; // Update status text
+            earthTimeDisplay.textContent = `Earth: ${earthTime.toFixed(2)} y`;
+            travelerTimeDisplay.textContent = `Traveler: ${travelerTime.toFixed(2)} y`;
+            speedDisplay.textContent = `${velocity.toFixed(3)}`;
 
-            
-            const gammaNum = isFinite(lorentzFactor) ? lorentzFactor : 1; 
+            const earthProgress = Math.min(1, Math.max(0, currentDistance / DISTANCE_ALPHA_CENTAURI));
+            earthRocketMarker.style.left = `${earthProgress * 100}%`;
+            earthDistanceLabel.textContent = `${DISTANCE_ALPHA_CENTAURI.toFixed(2)} ly`;
+
+            const travelerScaleWidthPercentage = (contractedDistance / DISTANCE_ALPHA_CENTAURI) * 100;
+            travelerScaleContainer.style.width = `${travelerScaleWidthPercentage}%`;
+            travelerDistanceLabel.textContent = `${contractedDistance.toFixed(2)} ly`;
+            const travelerProgress = earthProgress; // Progress is same visually on both scales
+            travelerRocketMarker.style.left = `${travelerProgress * 100}%`;
+
+
+            const gammaNum = isFinite(lorentzFactor) ? lorentzFactor : 1;
             const gammaStr = isFinite(lorentzFactor) ? lorentzFactor.toFixed(2) : "\\infty";
             const vStr = velocity.toFixed(3);
-            const betaStr = vStr; 
-            const tStr = earthTime.toFixed(2); 
-            const xStr = currentDistance.toFixed(2); 
-            const tauStr = travelerTime.toFixed(2); 
-            const LStr = DISTANCE_ALPHA_CENTAURI.toFixed(2); 
-            const LPrimeStr = isFinite(contractedDistance) ? contractedDistance.toFixed(2) : "0.00"; 
-            const gammaBetaStr = (gammaNum * velocity).toFixed(2);
+            const betaStr = vStr;
+            const tStr = earthTime.toFixed(2);
+            const xStr = currentDistance.toFixed(2);
+            const tauStr = travelerTime.toFixed(2);
+            const LStr = DISTANCE_ALPHA_CENTAURI.toFixed(2);
+            const LPrimeStr = isFinite(contractedDistance) ? contractedDistance.toFixed(2) : "0.00";
+            const gammaBetaStr = isFinite(lorentzFactor) ? (lorentzFactor * velocity).toFixed(2) : "\\infty";
 
-            
-            
             const ctPrimeCalc = isFinite(lorentzFactor) ? lorentzFactor * (earthTime - velocity * currentDistance) : NaN;
-            
             const xPrimeCalc = isFinite(lorentzFactor) ? lorentzFactor * (currentDistance - velocity * earthTime) : NaN;
             const ctPrimeStr = isFinite(ctPrimeCalc) ? ctPrimeCalc.toFixed(2) : "\\text{undef}";
             const xPrimeStr = isFinite(xPrimeCalc) ? xPrimeCalc.toFixed(2) : "\\text{undef}";
 
 
-            
             lorentzFactorEq.innerHTML = `$$ \\gamma = \\frac{1}{\\sqrt{1 - (${vStr})^2}} \\approx ${gammaStr} $$`;
             lorentzFactorDesc.textContent = `Ratio of time/length change $v = ${vStr} c$`;
-            
+
             timeDilationEq.innerHTML = `$$ \\tau = \\frac{t}{\\gamma} \\approx \\frac{${tStr} \\, \\text{y}}{${gammaStr}} \\approx ${tauStr} \\, \\text{y} $$`;
-            timeDilationDesc.textContent = `Traveler's elapsed time (𝜏) vs Earth time (t)`; 
-            
+            timeDilationDesc.textContent = `Traveler's elapsed time (𝜏) vs Earth time (t)`;
+
             lengthContractionEq.innerHTML = `$$ L' = \\frac{L}{\\gamma} \\approx \\frac{${LStr} \\, \\text{ly}}{${gammaStr}} \\approx ${LPrimeStr} \\, \\text{ly} $$`;
-            lengthContractionDesc.textContent = `Traveler's perceived distance (L') vs Proper distance (L)`; 
-            
+            lengthContractionDesc.textContent = `Traveler's perceived distance (L') vs Proper distance (L)`;
+
             lorentzTransformEq.innerHTML = `$$ \\begin{pmatrix} ct' \\\\ x' \\end{pmatrix} = \\begin{pmatrix} ${gammaStr} & -${gammaBetaStr} \\\\ -${gammaBetaStr} & ${gammaStr} \\end{pmatrix} \\begin{pmatrix} ${tStr} \\\\ ${xStr} \\end{pmatrix} \\approx \\begin{pmatrix} ${ctPrimeStr} \\\\ ${xPrimeStr} \\end{pmatrix} $$`;
-            lorentzTransformDesc.textContent = `Calculates traveler frame coords $(ct', x')$ for Earth frame event $(ct=${tStr}, x=${xStr})$`; 
+            lorentzTransformDesc.textContent = `Calculates traveler frame coords $(ct', x')$ for Earth frame event $(ct=${tStr}, x=${xStr})$`;
 
-
-            
+            // Typeset MathJax
             if (window.MathJax && MathJax.typesetPromise) {
                  Promise.all([
                     MathJax.typesetPromise([lorentzFactorEq, lorentzFactorDesc]),
-                    MathJax.typesetPromise([timeDilationEq, timeDilationDesc]), 
-                    MathJax.typesetPromise([lengthContractionEq, lengthContractionDesc]), 
-                    MathJax.typesetPromise([lorentzTransformEq, lorentzTransformDesc]) 
+                    MathJax.typesetPromise([timeDilationEq, timeDilationDesc]),
+                    MathJax.typesetPromise([lengthContractionEq, lengthContractionDesc]),
+                    MathJax.typesetPromise([lorentzTransformEq, lorentzTransformDesc])
                  ]).catch((err) => console.error('MathJax typesetting error:', err));
             }
+
+            // Update pause/resume button state visually
+            if (simulationRunning && (status === 'Outbound' || status === 'Inbound')) {
+                pauseResumeButton.classList.add('playing');
+                pauseResumeButton.title = 'Pause Simulation';
+            } else {
+                pauseResumeButton.classList.remove('playing');
+                pauseResumeButton.title = 'Resume Simulation';
+            }
+            // Disable pause/resume if idle, stopped, or finished
+            pauseResumeButton.disabled = !(status === 'Outbound' || status === 'Inbound' || status === 'Paused');
+
         }
 
         function startSimulation() {
-            if (simulationRunning) return;
+            // Can only start if Idle, Stopped, or Finished
+            if (!(status === 'Idle' || status === 'Stopped' || status === 'Finished')) return;
+
             const currentVelocitySetting = parseFloat(speedSlider.value);
-            velocity = currentVelocitySetting; lorentzFactor = calculateLorentzFactor(velocity); contractedDistance = calculateContractedDistance(DISTANCE_ALPHA_CENTAURI, lorentzFactor);
-            if (!isFinite(lorentzFactor)) { showStatusMessage("Error: Cannot simulate effectively at the speed of light!", "error"); }
-            if (status === 'Idle' || status === 'Finished' || status === 'Stopped') { earthTime = 0; travelerTime = 0; currentDistance = 0; }
-            status = 'Outbound'; simulationRunning = true; lastTimestamp = 0;
-            updateDisplays(); drawLorentzGraph(); controlModal.style.display = 'none';
-            if (animationFrameId) cancelAnimationFrame(animationFrameId); animationFrameId = requestAnimationFrame(simulationStep);
+            velocity = currentVelocitySetting;
+            lorentzFactor = calculateLorentzFactor(velocity);
+            contractedDistance = calculateContractedDistance(DISTANCE_ALPHA_CENTAURI, lorentzFactor);
+
+            if (!isFinite(lorentzFactor)) {
+                 showStatusMessage("Error: Cannot simulate effectively at the speed of light!", "error");
+                 // Don't start if speed is invalid
+                 return;
+            }
+
+            // Reset times and distance only if starting from scratch
+            if (status === 'Idle' || status === 'Finished' || status === 'Stopped') {
+                earthTime = 0;
+                travelerTime = 0;
+                currentDistance = 0;
+            }
+
+            status = 'Outbound';
+            prePauseStatus = null; // Clear any previous pause state
+            simulationRunning = true;
+            lastTimestamp = 0; // Reset timestamp for accurate start/resume
+
+            updateDisplays(); // Update UI elements including button states
+            drawLorentzGraph(); // Update graph if speed changed
+            controlModal.style.display = 'none'; // Close modal
+
+            // Cancel previous frame and start new animation loop
+            if (animationFrameId) cancelAnimationFrame(animationFrameId);
+            animationFrameId = requestAnimationFrame(simulationStep);
         }
 
-        function stopSimulation() {
-            simulationRunning = false; lastTimestamp = 0; if (status !== 'Finished') status = 'Stopped'; updateDisplays();
-            if (!animationFrameId) { animationFrameId = requestAnimationFrame(simulationStep); }
+        function pauseSimulation() {
+            if (!simulationRunning || !(status === 'Outbound' || status === 'Inbound')) return; // Can only pause if running
+            simulationRunning = false;
+            prePauseStatus = status; // Store the current state
+            status = 'Paused';
+            // Don't reset lastTimestamp here, keep it for potential resume
+            updateDisplays(); // Update UI, including button icon
+            // The animation loop continues via simulationStep checking simulationRunning flag
+        }
+
+        function resumeSimulation() {
+            if (simulationRunning || status !== 'Paused') return; // Can only resume if paused
+            simulationRunning = true;
+            status = prePauseStatus; // Restore the previous state
+            prePauseStatus = null;
+            lastTimestamp = 0; // Reset timestamp to avoid jump on resume
+            updateDisplays(); // Update UI
+            // The animation loop will pick up running state in simulationStep
+            if (!animationFrameId) { // Ensure loop is running if it somehow stopped
+                 animationFrameId = requestAnimationFrame(simulationStep);
+            }
+        }
+
+
+        function stopSimulation() { // Called when finished or manually stopped (e.g. by reset)
+            simulationRunning = false;
+            // lastTimestamp = 0; // Keep lastTimestamp if needed for final display consistency? No, reset is fine.
+             lastTimestamp = 0;
+            if (status !== 'Finished') { // Don't overwrite 'Finished' status
+                status = 'Stopped';
+            }
+            prePauseStatus = null; // Clear pause state
+            updateDisplays(); // Update UI to reflect stopped state
+            // The animation loop continues via simulationStep checking simulationRunning flag
         }
 
         function resetSimulationState(keepVelocity = null) {
-            stopSimulation();
-            velocity = keepVelocity !== null ? keepVelocity : 0.8; speedSlider.value = velocity; speedValue.textContent = velocity.toFixed(3);
-            earthTime = 0; travelerTime = 0; currentDistance = 0; status = 'Idle';
-            lorentzFactor = calculateLorentzFactor(velocity); contractedDistance = calculateContractedDistance(DISTANCE_ALPHA_CENTAURI, lorentzFactor);
-            travelerScaleContainer.style.width = `100%`; earthRocketMarker.style.left = `0%`; travelerRocketMarker.style.left = `0%`;
-            updateDisplays(); drawLorentzGraph(); drawSpace();
-            if (!animationFrameId && stars.length > 0) { animationFrameId = requestAnimationFrame(simulationStep); }
+            stopSimulation(); // Stop any current run
+
+            velocity = keepVelocity !== null ? keepVelocity : 0.8; // Reset velocity or keep current setting if needed
+            speedSlider.value = velocity;
+            speedValue.textContent = velocity.toFixed(3);
+
+            // Full reset of simulation variables
+            earthTime = 0;
+            travelerTime = 0;
+            currentDistance = 0;
+            status = 'Idle'; // Set status to Idle
+            prePauseStatus = null;
+            lorentzFactor = calculateLorentzFactor(velocity);
+            contractedDistance = calculateContractedDistance(DISTANCE_ALPHA_CENTAURI, lorentzFactor);
+
+            // Reset visual elements
+            travelerScaleContainer.style.width = `100%`; // Should contract based on new velocity
+            earthRocketMarker.style.left = `0%`;
+            travelerRocketMarker.style.left = `0%`;
+
+            updateDisplays(); // Update all displays for the reset state
+            drawLorentzGraph(); // Redraw graph for the reset velocity
+            drawSpace(); // Redraw space for the reset state
+
+            // Ensure animation loop is running for background stars if needed
+            if (!animationFrameId && stars.length > 0) {
+                animationFrameId = requestAnimationFrame(simulationStep);
+            }
         }
 
-        controlModalButton.addEventListener('click', () => { speedSlider.value = velocity; speedValue.textContent = velocity.toFixed(3); controlModal.style.display = 'flex'; });
-        closeControlModalButton.addEventListener('click', () => { controlModal.style.display = 'none'; });
-        startSimulationButton.addEventListener('click', startSimulation);
-        viewGraphButton.addEventListener('click', () => { graphModal.style.display = 'flex'; resizeCanvases(); if (window.MathJax && MathJax.typesetPromise) { MathJax.typesetPromise([lorentzGraphEquation]); } });
-        closeGraphModalButton.addEventListener('click', () => { graphModal.style.display = 'none'; });
-        resetButton.addEventListener('click', () => resetSimulationState(null));
-        window.addEventListener('click', (event) => { if (event.target === controlModal) controlModal.style.display = 'none'; if (event.target === graphModal) graphModal.style.display = 'none'; });
-        speedSlider.addEventListener('input', (event) => {
-            const v = parseFloat(event.target.value); speedValue.textContent = v.toFixed(3); velocity = v;
-            lorentzFactor = calculateLorentzFactor(velocity); contractedDistance = calculateContractedDistance(DISTANCE_ALPHA_CENTAURI, lorentzFactor);
-            drawLorentzGraph(); updateDisplays();
+        // --- Event Listeners ---
+        controlModalButton.addEventListener('click', () => {
+            speedSlider.value = velocity; // Sync slider with current velocity
+            speedValue.textContent = velocity.toFixed(3);
+            controlModal.style.display = 'flex';
         });
-        window.addEventListener('resize', resizeCanvases);
 
+        closeControlModalButton.addEventListener('click', () => {
+            controlModal.style.display = 'none';
+        });
+
+        startSimulationButton.addEventListener('click', startSimulation); // Start/Restart button in modal
+
+        pauseResumeButton.addEventListener('click', () => {
+            if (simulationRunning) {
+                pauseSimulation();
+            } else if (status === 'Paused') {
+                resumeSimulation();
+            }
+            // Do nothing if Idle, Stopped, Finished
+        });
+
+        resetButton.addEventListener('click', () => resetSimulationState(null)); // Reset with default velocity
+
+        viewGraphButton.addEventListener('click', () => {
+            graphModal.style.display = 'flex';
+            resizeCanvases(); // Ensure graph canvas is sized correctly
+            if (window.MathJax && MathJax.typesetPromise) {
+                 MathJax.typesetPromise([lorentzGraphEquation]); // Typeset equation in graph modal
+            }
+        });
+
+        closeGraphModalButton.addEventListener('click', () => {
+            graphModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (event) => { // Close modals on outside click
+            if (event.target === controlModal) controlModal.style.display = 'none';
+            if (event.target === graphModal) graphModal.style.display = 'none';
+        });
+
+        speedSlider.addEventListener('input', (event) => { // Update velocity and related values instantly
+            const v = parseFloat(event.target.value);
+            speedValue.textContent = v.toFixed(3);
+            velocity = v;
+            lorentzFactor = calculateLorentzFactor(velocity);
+            contractedDistance = calculateContractedDistance(DISTANCE_ALPHA_CENTAURI, lorentzFactor);
+            drawLorentzGraph(); // Update graph immediately
+            updateDisplays(); // Update equations immediately
+        });
+
+        window.addEventListener('resize', resizeCanvases); // Handle window resizing
+
+        // --- Initial Setup ---
         function initialize() {
-            resizeCanvases(); resetSimulationState(velocity);
+            resizeCanvases(); // Set initial canvas sizes
+            resetSimulationState(velocity); // Set initial state with default velocity
+
+            // Initial MathJax typesetting for graph modal equation
             if (window.MathJax && MathJax.typesetPromise) {
                  MathJax.typesetPromise([lorentzGraphEquation]).catch(err => console.error("Initial MathJax typesetting error (modal):", err));
-            } else { console.warn("MathJax not ready for initial typesetting."); }
-            if (!animationFrameId) { animationFrameId = requestAnimationFrame(simulationStep); }
+            } else {
+                 console.warn("MathJax not ready for initial typesetting.");
+            }
+             // Start the animation loop immediately for background stars etc.
+             if (!animationFrameId) {
+                 animationFrameId = requestAnimationFrame(simulationStep);
+             }
         }
         window.onload = initialize;
 
-        function showStatusMessage(message, type = 'info') {
-            const existingMsg = document.getElementById('statusMessage'); if (existingMsg) existingMsg.remove();
-            let bgColor = 'bg-indigo-500'; if (type === 'error') bgColor = 'bg-red-600'; if (type === 'success') bgColor = 'bg-green-600';
-            const messageDiv = document.createElement('div'); messageDiv.id = 'statusMessage'; messageDiv.textContent = message;
-            messageDiv.className = `fixed bottom-5 left-1/2 transform -translate-x-1/2 px-6 py-3 rounded-lg text-white ${bgColor} shadow-lg z-[100] transition-opacity duration-300 opacity-0`;
-            document.body.appendChild(messageDiv); requestAnimationFrame(() => { messageDiv.style.opacity = '1'; });
-            setTimeout(() => { messageDiv.style.opacity = '0'; setTimeout(() => { if (messageDiv.parentNode) { messageDiv.remove(); } }, 300); }, 3000);
+        // --- Helper for Status Messages --- (Increased duration slightly)
+        function showStatusMessage(message, type = 'info', duration = 4000) { // Default 4 seconds
+            const existingMsg = document.getElementById('statusMessage');
+            if (existingMsg) existingMsg.remove();
+
+            let bgColor = 'bg-indigo-500'; // Default info
+            if (type === 'error') bgColor = 'bg-red-600';
+            if (type === 'success') bgColor = 'bg-green-600';
+
+            const messageDiv = document.createElement('div');
+            messageDiv.id = 'statusMessage';
+            messageDiv.innerHTML = message; // Use innerHTML in case message contains simple formatting like line breaks
+            messageDiv.className = `fixed bottom-5 left-1/2 transform -translate-x-1/2 px-6 py-3 rounded-lg text-white ${bgColor} shadow-lg z-[100] transition-opacity duration-300 opacity-0 max-w-md text-center`; // Added max-width and text-center
+
+            document.body.appendChild(messageDiv);
+            requestAnimationFrame(() => { // Fade in
+                messageDiv.style.opacity = '1';
+            });
+
+            setTimeout(() => { // Start fade out
+                messageDiv.style.opacity = '0';
+                setTimeout(() => { // Remove from DOM after fade out
+                    if (messageDiv.parentNode) {
+                        messageDiv.remove();
+                    }
+                }, 300); // Corresponds to duration-300
+            }, duration); // Use specified duration
         }
     </script>
 
